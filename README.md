@@ -32,12 +32,12 @@ $ npm run build
 使用你喜欢的编辑器编写代码 <=> 微信官方的开发者工具预览调试和发布
 
 ### 注意
-请在微信官方的开发者工具的 `项目` 下设置 `开启ES6转ES5` 的关闭，这里使用 `Gulp` 和 `Babel` 进行转换。在开发目录 `src/` 可使用 `.xml` 替代 `.wxml`，`.css` 替代 `.wxss`，会通过构建工具自动转换到目标文件夹 `dist/` 中。(主要为了编辑器对扩展名的识别，方便开发使用)
+请在微信官方的开发者工具的 `项目` 下将 `开启ES6转ES5` 设置为关闭，这里使用 `Gulp` 和 `Babel` 进行转换。在开发目录 `src/` 可使用 `.xml` 替代 `.wxml`，`.css` 替代 `.wxss`，会通过构建工具自动转换到目标文件夹 `dist/` 中。(主要为了编辑器对扩展名的识别，方便开发使用)
 
 ### 目录结构
 - `src/` 开发目录
 - `src/lib` 引用的模块库目录，由于微信小程序不支持 `node_modules` 使用npm安装的库无法直接使用，这里放置了转换后的库。以下是整合的一些库，当然你可以根据自己喜欢重新整合。
-- `src/lib/redux-act-reducer` [redux-act-reducer](https://github.com/hahoocn/redux-act-reducer) 是本人开发的创建redux action和reducer的工具。
+- `src/lib/redux-act-reducer/` [redux-act-reducer](https://github.com/hahoocn/redux-act-reducer) 是本人开发的创建redux action和reducer的工具。
 - `src/lib/regenerator-runtime/` 使用async/await用到的库
 - `src/lib/wx-app-redux/` 本人开发的类似于 [react-redux](https://github.com/reactjs/react-redux) 的Redux数据绑定工具。将`Page()` 下的 `data` 与redux绑定。
 - `src/lib/immutable.js` 从官方[immutable-js](http://facebook.github.io/immutable-js/)生成的文件。
