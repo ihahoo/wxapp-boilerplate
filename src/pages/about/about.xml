@@ -1,0 +1,5 @@
+<view class="container">
+  <text class="content">
+    微信小程序开发脚手架 (Redux, Immutable-js, Reselect, Babel, ESLint, Stylelint, Gulp ... )
+  </text>
+</view>

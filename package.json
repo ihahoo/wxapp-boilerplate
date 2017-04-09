@@ -1,0 +1,51 @@
+{
+  "name": "wxapp-boilerplate",
+  "version": "0.1.0",
+  "description": "微信小程序开发脚手架 (Redux, Immutable-js, Reselect, Babel, ESLint, Stylelint, Gulp ... )",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp watch",
+    "build": "cross-env NODE_ENV=production gulp build",
+    "clean": "gulp clean"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihahoo/wxapp-boilerplate.git"
+  },
+  "keywords": [
+    "weapp",
+    "wxapp",
+    "wechat",
+    "app",
+    "boilerplate"
+  ],
+  "author": "Ray Guo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ihahoo/wxapp-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ihahoo/wxapp-boilerplate#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "cross-env": "^4.0.0",
+    "del": "^2.2.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-jsonminify": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-uglify": "^2.1.2",
+    "run-sequence": "^1.2.2",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0"
+  }
+}

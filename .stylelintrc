@@ -1,0 +1,18 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": [
+        "export",
+        "import",
+        "global",
+        "local"
+      ]
+    }],
+    "unit-no-unknown": [true, {
+      "ignoreUnits": [
+        "rpx"
+      ]
+    }]
+  }
+}

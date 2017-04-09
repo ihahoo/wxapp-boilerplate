@@ -1,0 +1,11 @@
+<view class="container">
+  <view  bindtap="bindViewTap" class="info">
+    <image class="info-logo" src="../../images/wechat.jpg" mode="widthFix"></image>
+    <text class="info-name">wxapp-boilerplate</text>
+  </view>
+  <view class="txt">
+    <text>{{motto}}</text>
+    <text>异步获取的数据：(电影数量{{moviesTotal}})</text>
+    <text>{{home.info}}</text>
+  </view>
+</view>
