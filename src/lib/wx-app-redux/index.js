@@ -46,7 +46,10 @@ const createConnect = (mapStateToProps, mapDispatchToProps) => {
       if (this.unsubscribe) {
         const state = app.store.getState();
         const mappedState = mapState(state);
-        if (!shallowEqual(this.data, mappedState)) this.setData(mappedState);
+        if (!shallowEqual(this.data, mappedState)) {
+          this.setData(mappedState);
+          if (page.onStateChange && typeof page.onStateChange === 'function') page.onStateChange.call(this);
+        }
       }
     }
 
