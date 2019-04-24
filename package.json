@@ -1,6 +1,6 @@
 {
   "name": "wxapp-boilerplate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "微信小程序开发脚手架 (Redux, Immutable-js, Reselect, Babel, ESLint, Stylelint, Gulp ... )",
   "scripts": {
     "dev": "cross-env NODE_ENV=development gulp watch",
