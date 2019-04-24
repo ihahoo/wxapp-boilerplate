@@ -1,10 +1,10 @@
 import request from '../../utils/request';
-import regeneratorRuntime from '../../lib/regenerator-runtime/runtime-module';
+import regeneratorRuntime from '../../lib/regenerator-runtime/runtime';
 
 const showMoviesApi = async () => {
   try {
     const res = await request({
-      url: 'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json',
+      url: 'https://raw.githubusercontent.com/ihahoo/doc/master/MoviesExample.json',
       method: 'GET',
     });
     return Promise.resolve(res);
