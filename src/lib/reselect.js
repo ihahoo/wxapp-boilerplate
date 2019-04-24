@@ -90,7 +90,7 @@
       }].concat(memoizeOptions));
 
       // If a selector is called with the exact same arguments we don't need to traverse our dependencies again.
-      var selector = defaultMemoize(function () {
+      var selector = memoize(function () {
         var params = [];
         var length = dependencies.length;
 
@@ -104,6 +104,7 @@
       });
 
       selector.resultFunc = resultFunc;
+      selector.dependencies = dependencies;
       selector.recomputations = function () {
         return recomputations;
       };

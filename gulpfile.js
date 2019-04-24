@@ -2,14 +2,14 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
 const jsonminify = require('gulp-jsonminify');
-const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
 const htmlmin = require('gulp-htmlmin');
 const imagemin = require('gulp-imagemin');
 const del = require('del');
-const runSequence = require('run-sequence');
 const gulpif = require('gulp-if');
 const uglify = require('gulp-uglify');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
 
 const isProd = () => process.env.NODE_ENV === 'production';
 
@@ -39,7 +39,7 @@ gulp.task('wxml', () =>
 
 gulp.task('wxss', () =>
   gulp.src(['src/**/*.{wxss,css}'])
-  .pipe(gulpif(isProd, cssnano()))
+  .pipe(gulpif(isProd, postcss([cssnano()])))
   .pipe(rename({ extname: '.wxss' }))
   .pipe(gulp.dest('dist'))
 );
@@ -63,15 +63,15 @@ gulp.task('extras', () =>
 
 gulp.task('clean', () => del(['dist/*']));
 
-gulp.task('build', () => runSequence('clean', ['js', 'wxml', 'wxss', 'json', 'image', 'extras']));
+gulp.task('build', gulp.series('clean', gulp.parallel('js', 'wxml', 'wxss', 'json', 'image', 'extras')));
 
-gulp.task('watch', ['build'], () => {
-  gulp.watch('src/**/*.js', ['js']);
-  gulp.watch('src/**/*.{wxml,xml,html}', ['wxml']);
-  gulp.watch('src/**/*.{wxss,css}', ['wxss']);
-  gulp.watch('src/**/*.json', ['json']);
-  gulp.watch('src/**/*.{jpg,jpeg,png,gif,svg}', ['image']);
-  gulp.watch(['src/**/*.*', '!src/**/*.{js,wxml,xml,html,wxss,json,css,jpg,jpeg,png,gif,svg}'], ['extras']);
-});
+gulp.task('watch', gulp.series('build', () => {
+  gulp.watch('src/**/*.js', gulp.series('js'));
+  gulp.watch('src/**/*.{wxml,xml,html}', gulp.series('wxml'));
+  gulp.watch('src/**/*.{wxss,css}', gulp.series('wxss'));
+  gulp.watch('src/**/*.json', gulp.series('json'));
+  gulp.watch('src/**/*.{jpg,jpeg,png,gif,svg}', gulp.series('image'));
+  gulp.watch(['src/**/*.*', '!src/**/*.{js,wxml,xml,html,wxss,json,css,jpg,jpeg,png,gif,svg}'], gulp.series('extras'));
+}));
 
-gulp.task('default', ['watch']);
+gulp.task('default', gulp.series('watch'));

@@ -1,6 +1,6 @@
 'use strict';
 
-import regeneratorRuntime from '../regenerator-runtime/runtime-module';
+import regeneratorRuntime from '../regenerator-runtime/runtime';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
